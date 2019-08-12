@@ -1,0 +1,50 @@
+---
+
+- name: define distribution-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: perform installation
+  include_tasks: install/{{ ansible_os_family }}.yml
+
+- name: create apache-irods configuration directory
+  file:
+    path: "{{ apache_conf_dir }}/irods"
+    state: directory
+    owner: root
+    group: "{{ apache_group }}"
+    mode: u=rwx,g=rx,o=
+  notify: restart apache
+
+- name: get iRODS server certificate
+  copy:
+    content: "{{ davrods_irods_cert }}"
+    dest: "{{ apache_conf_dir }}/irods/irods_server.crt"
+    owner: root
+    group: root
+    mode: u=rw,go=r
+  notify: restart apache
+
+- name: create apache-irods configuration JSON file
+  copy:
+    src: irods_environment.json
+    dest: "{{ apache_conf_dir }}/irods"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    mode: ug=r,o=
+  notify: restart apache
+
+- name: copy theme files
+  copy:
+    src: "theme/{{ item }}"
+    dest: "{{ apache_conf_dir }}/irods/{{ item }}"
+  loop:
+    - head.html
+    - header.html
+    - footer.html
+  notify: restart apache
+
+- name: install configuration
+  template:
+    src: davrods.conf.j2
+    dest: "{{ davrods_apache_conf_dir }}/davrods.conf"
+  notify: restart apache

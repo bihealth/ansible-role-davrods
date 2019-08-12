@@ -1,0 +1,8 @@
+---
+
+davrods_url1: https://github.com/UtrechtUniversity/davrods/releases/download
+davrods_url2: "{{ davrods_davrods_version }}"
+davrods_url3: davrods-{{ davrods_davrods_version }}-{{ davrods_davrods_build }}.rpm
+davrods_pkg_url: "{{ davrods_url1 }}/{{ davrods_url2 }}/{{ davrods_url3 }}"
+
+davrods_apache_conf_dir: "{{ apache_conf_dir }}/conf.d"

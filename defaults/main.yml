@@ -1,0 +1,38 @@
+---
+
+# REQUIRED Settings -------------------------------------------------------------------------------
+
+# The IP of the iRODS server to connect to.
+# davrods_irods_ip: null
+
+# The certificate of the iRODS server to connect to.
+# davrods_irods_cert: null
+
+# The iRODS zone name.
+# davrods_irods_zone_name: null
+
+# Important Settings (you might want to override these) -------------------------------------------
+
+# Davrods package version to install.
+davrods_davrods_version: 4.2.6_1.4.2
+
+# The package build no to use (only for RPM).
+davrods_davrods_build: 1
+
+# Whether or not to enable proxying to SODAR (important for loading IGV sessions through Davrods
+# such that users only have to enter their password once).
+davrods_sodar_enable_proxy: false
+
+# URL to SODAR instance for enabling the proxy.
+davrods_sodar_url: null
+
+# String for Apache "AuthName"
+davrods_auth_name: "Please enter your user name as user@DOMAIN and your password."
+
+# The authentication scheme.
+davrods_auth_scheme: Pam
+
+# Other Settings (the defaults are sensible for most cases) ---------------------------------------
+
+# The port of the iRODS server to connect to.
+davrods_irods_port: 1247
