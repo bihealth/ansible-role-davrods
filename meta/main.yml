@@ -1,7 +1,7 @@
 ---
 
 galaxy_info:
-  role_name: bihealth.ansible-role-davrods
+  role_name: davrods
   author: Manuel Holtgrewe
   description: Setup of a Davrods server.
   company: Core Unit Bioinformatics (CUBI), Berlin Institute of Health (BIH)

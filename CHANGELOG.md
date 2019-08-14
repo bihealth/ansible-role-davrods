@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.2
+
+- Fixing dependencies to use Galaxy versions.
+- Fixing role name.
+
 ## v0.1.1
 
 - Bumping dependency `bihealth.apache`.
