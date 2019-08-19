@@ -1,5 +1,9 @@
 # Changelog
 
+## HEAD (unreleased)
+
+- Fixing name in apache config template.
+
 ## v0.1.2
 
 - Fixing dependencies to use Galaxy versions.

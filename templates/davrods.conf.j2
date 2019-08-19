@@ -5,7 +5,7 @@
 
     {% if davrods_sodar_enable_proxy %}
     SSLProxyEngine On
-    ProxyPass /__sodar/ {{ davrods_davrods_sodar_url }}
+    ProxyPass /__sodar/ {{ davrods_sodar_url }}
     {% endif %}
 
     <Location />
