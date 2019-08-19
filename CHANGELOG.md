@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD (unreleased)
+## v0.1.3
 
 - Fixing name in apache config template.
 
