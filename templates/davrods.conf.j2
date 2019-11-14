@@ -19,8 +19,8 @@
         Dav                   davrods-locallock
 
         DavRodsEnvFile        {{ apache_conf_dir }}/irods/irods_environment.json
-        DavRodsServer         {{ davrods_irods_ip }} {{ davrods_irods_port }}
-        DavRodsZone           {{ davrods_irods_zone_name }}
+        DavRodsServer         {{ davrods_irods_host }} {{ davrods_irods_port }}
+        DavRodsZone           {{ davrods_irods_zone }}
         DavRodsAuthScheme     {{ davrods_auth_scheme }}
         DavRodsExposedRoot    /
 

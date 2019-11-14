@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.0
+
+- Various fixes to configuration deployment.
+
 ## v0.1.3
 
 - Fixing name in apache config template.

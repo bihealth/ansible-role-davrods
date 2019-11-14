@@ -25,9 +25,9 @@
   notify: restart apache
 
 - name: create apache-irods configuration JSON file
-  copy:
-    src: irods_environment.json
-    dest: "{{ apache_conf_dir }}/irods"
+  template:
+    src: irods_environment.json.j2
+    dest: "{{ apache_conf_dir }}/irods/irods_environment.json"
     owner: "{{ apache_user }}"
     group: "{{ apache_group }}"
     mode: ug=r,o=
