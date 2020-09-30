@@ -35,6 +35,9 @@ davrods_auth_scheme: Pam
 # Value for "irods_ssl_verify_server"
 davrods_irods_ssl_verify_server: cert
 
+# Disable tickets by default.
+davrods_tickets_enable: false
+
 # Other Settings (the defaults are sensible for most cases) ---------------------------------------
 
 # The port of the iRODS server to connect to.

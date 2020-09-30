@@ -19,7 +19,27 @@
 <VirtualHost *:80>
 {% endif %}
 
+    {% if davrods_tickets_enable %}
+    SetEnvIfExpr "req_novary('Authorization') =~ /^Basic +(.*)/"          DAVRODS_BASIC_CREDS64=$1
+    SetEnvIfExpr "unbase64(reqenv('DAVRODS_BASIC_CREDS64')) =~ /(.*:.*)/" DAVRODS_BASIC_CREDS=$1
+    SetEnvIfExpr "reqenv('DAVRODS_BASIC_CREDS') =~ /^anonymous:(.*)/"        DAVRODS_BASIC_TICKET=$1
+    SetEnvIfExpr "reqenv('DAVRODS_BASIC_TICKET') =~ /^(.*)$/"             DAVRODS_TICKET=$1
+
+    <If "-n reqenv('DAVRODS_BASIC_TICKET')">
+        AuthType None
+        Require  all granted
+        DavrodsAuthScheme Native
+        DavrodsAnonymousMode On
+        DavrodsAnonymousLogin "anonymous" ""
+        DavrodsHtmlEmitTickets Off
+    </If>
+    {% endif %}
+
     <Location />
+        {% if davrods_tickets_enable %}
+        DavrodsTickets ReadOnly
+        {% endif %}
+
         DirectoryIndex        enabled
 
         AuthType              Basic
